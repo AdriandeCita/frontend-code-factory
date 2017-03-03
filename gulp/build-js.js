@@ -16,7 +16,7 @@ var gulp = require('gulp'),
 
 gulp.task('build-js', function () {
     var customJS = gulpFilter(config.pathTo.Src.JSCustom, {restore: true}),
-        vendorJS = gulpFilter(config.pathTo.Src.JSVendor, {restore: true});
+        vendorJS = config.control.JSVendorBundleSource.length ? gulpFilter(config.control.JSVendorBundleSource, {restore: true}) : gulpFilter(config.pathTo.Src.JSVendor, {restore: true});
 
     return gulp.src(config.pathTo.Src.JS)
         .pipe(plumber(function(error) {
@@ -38,7 +38,13 @@ gulp.task('build-js', function () {
         .pipe(customJS.restore)
         // Get vendor JS
         .pipe(vendorJS)
-        .pipe(newer(config.pathTo.Build.JSVendorBundle))
+        .pipe(gulp.dest(config.pathTo.Build.JSVendor))
+        .pipe(sourcemaps.init())
+        .pipe(concat('vendor-bundle.js'))
+        .pipe(gulp.dest(config.pathTo.Build.JSVendorBundle))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(uglify())
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(config.pathTo.Build.JSVendorBundle))
         .pipe(reload({stream: true}));
 });

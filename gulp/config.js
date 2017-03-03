@@ -20,13 +20,13 @@ module.exports = {
             },
             JSCustom: 'src/js/custom/**/*.*',
             JSVendor: 'src/js/vendor/**/*.*',
-
             Images: ['src/img/**/*.*', '!src/img/sprite/*.*'],
             PngSprite: 'src/img/sprite/**/*.png',
+            Fonts: 'src/scss/fonts/**/*',
+            Txt: ['src/humans.txt', 'src/robots.txt', 'src/.htaccess'],
+
             JS: 'src/js/**/*.*',
             CSSVendor: 'src/scss/vendor/',
-            Txt: ['src/humans.txt', 'src/robots.txt', 'src/.htaccess','src/CHANGELOG.md','src/README.md'],
-            Fonts: 'src/scss/fonts/**/*',
             Svg: ['src/svg/**/*.*', '!src/svg/sprite/*.*'],
             SvgSprite: 'src/svg/sprite/**/*.svg',
             SvgSpriteTpl: 'src/scss/includes/_svg-sprite-sass.tpl'
@@ -37,15 +37,14 @@ module.exports = {
             Clean: ['server/**/*', '!server/.gitignore'],
             JSCustomBundle: 'server/js',
             JSVendorBundle: 'server/js',
-
-            JSVendor: 'server/js/vendor',
+            JSVendor: 'server/js',
             JSCustom: 'server/js/custom',
+            Images: 'server/img',
+            Fonts: 'server/css/fonts',
+            Txt: 'server/',
 
-            Images: 'dist/img',
             PngSprite: 'dist/img/sprite',
             PngSpriteCSS: 'src/scss/includes',
-            Txt: 'dist/',
-            Fonts: 'dist/css/fonts',
             Svg: 'dist/svg',
             SvgSprite: 'dist/svg/sprite/svg-sprite.svg',
             SvgSpriteNoSvg: 'dist/svg/sprite/svg-sprite.png',

@@ -7,14 +7,13 @@ gulp.task('build', function(callback) {
         'clean-server',
         'build-pug',
         'bower',
-        //'js-bundle',
         'build-js',
         //'png-sprite',
-        //'images',
+        'build-images',
         //'svg',
 //        'svg-sprite',
-        //'fonts',
+        'build-fonts',
         'build-scss',
-        //'txt',
+        'build-txt',
         callback)
 });
