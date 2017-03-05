@@ -9,7 +9,8 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     browserSync = require("browser-sync"),
     reload = browserSync.reload,
-    plumber = require('gulp-plumber');
+    plumber = require('gulp-plumber'),
+    notify = require('gulp-notify');
 
 
 
@@ -20,9 +21,15 @@ gulp.task('bower', function () {
     return gulp.src(mainBowerFiles({
         includeDev: true
     }))
-        .pipe(plumber(function(error) {
-            gutil.log(gutil.colors.red(error.message));
-            this.emit('end');
+        .pipe(plumber({
+            errorHandler: function(error) {
+                notify({
+                    title: 'Bower Error',
+                    message: error.msg
+                }).write(error);
+                gutil.log(gutil.colors.red(error.message));
+                this.emit('end');
+            }
         }))
         // Get vendor JavaScript
         .pipe(jsFilter)

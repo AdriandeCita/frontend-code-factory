@@ -12,16 +12,23 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     browserSync = require("browser-sync"),
     reload = browserSync.reload,
-    plumber = require('gulp-plumber');
+    plumber = require('gulp-plumber'),
+    notify = require('gulp-notify');
 
 gulp.task('build-js', function () {
     var customJS = gulpFilter(config.pathTo.Src.JSCustom, {restore: true}),
         vendorJS = config.control.JSVendorBundleSource.length ? gulpFilter(config.control.JSVendorBundleSource, {restore: true}) : gulpFilter(config.pathTo.Src.JSVendor, {restore: true});
 
     return gulp.src(config.pathTo.Src.JS)
-        .pipe(plumber(function(error) {
-            gutil.log(gutil.colors.red(error.message));
-            this.emit('end');
+        .pipe(plumber({
+            errorHandler: function(error) {
+                notify({
+                    title: 'JavaScript Error',
+                    message: error.msg
+                }).write(error);
+                gutil.log(gutil.colors.red(error.message));
+                this.emit('end');
+            }
         }))
         // Get custom JS
         .pipe(customJS)
