@@ -24,10 +24,10 @@ module.exports = {
             PngSprite: 'src/img/sprite/**/*.png',
             Fonts: 'src/scss/fonts/**/*',
             Txt: ['src/humans.txt', 'src/robots.txt', 'src/.htaccess'],
-
-            JS: 'src/js/**/*.*',
-            CSSVendor: 'src/scss/vendor/',
             Svg: ['src/svg/**/*.*', '!src/svg/sprite/*.*'],
+            JS: 'src/js/**/*.*',
+
+            //CSSVendor: 'src/scss/vendor/',
             SvgSprite: 'src/svg/sprite/**/*.svg',
             SvgSpriteTpl: 'src/scss/includes/_svg-sprite-sass.tpl'
         },
@@ -42,10 +42,10 @@ module.exports = {
             Images: 'server/img',
             Fonts: 'server/css/fonts',
             Txt: 'server/',
-
-            PngSprite: 'dist/img/sprite',
+            PngSprite: 'server/img/sprite',
             PngSpriteCSS: 'src/scss/includes',
-            Svg: 'dist/svg',
+            Svg: 'server/svg',
+
             SvgSprite: 'dist/svg/sprite/svg-sprite.svg',
             SvgSpriteNoSvg: 'dist/svg/sprite/svg-sprite.png',
             SvgSpriteCSS: 'src/scss/includes/_svg-sprite.scss'
