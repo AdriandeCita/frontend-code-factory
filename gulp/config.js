@@ -49,6 +49,25 @@ module.exports = {
             SvgSprite: 'dist/svg/sprite/svg-sprite.svg',
             SvgSpriteNoSvg: 'dist/svg/sprite/svg-sprite.png',
             SvgSpriteCSS: 'src/scss/includes/_svg-sprite.scss'
+        },
+        Deploy: {
+            Css: 'distribution/css',
+            Html: 'distribution/',
+            Clean: ['distribution/**/*', '!distribution/.gitignore'],
+            JSCustomBundle: 'distribution/js',
+            JSVendorBundle: 'distribution/js',
+            JSVendor: 'distribution/js',
+            JSCustom: 'distribution/js/custom',
+            Images: 'distribution/img',
+            Fonts: 'distribution/css/fonts',
+            Txt: 'distribution/',
+            PngSprite: 'distribution/img/sprite',
+            PngSpriteCSS: 'src/scss/includes',
+            Svg: 'distribution/svg',
+
+            SvgSprite: 'dist/svg/sprite/svg-sprite.svg',
+            SvgSpriteNoSvg: 'dist/svg/sprite/svg-sprite.png',
+            SvgSpriteCSS: 'src/scss/includes/_svg-sprite.scss'
         }
     },
 
