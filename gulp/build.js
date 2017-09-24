@@ -1,4 +1,4 @@
-/* Build */
+/* Deploy */
 var gulp = require('gulp'),
     runSequence = require('run-sequence').use(gulp);
 
@@ -13,7 +13,7 @@ gulp.task('build', function(callback) {
         'build-svg',
 //        'svg-sprite',
         'build-fonts',
-        'build-scss',
+        'build-css',
         'build-txt',
         callback)
 });

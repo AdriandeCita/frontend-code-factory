@@ -1,0 +1,12 @@
+/* -------------------------------
+Main style file
+--------------------------------*/
+
+/* Put your vendor styles here */
+
+@import "./vendor/normalize.css";
+
+
+/* Put you custom styles below */
+
+@import "./components/_general.css";

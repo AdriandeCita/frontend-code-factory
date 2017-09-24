@@ -13,7 +13,7 @@ gulp.task('deploy', function(callback) {
         'deploy-svg',
 //        'svg-sprite',
         'deploy-fonts',
-        'deploy-scss',
+        'deploy-css',
         'deploy-txt',
         callback)
 });

@@ -6,17 +6,19 @@ module.exports = {
         JSVendorBundleSource: [
             //'src/js/vendor/jquery.js',
             //'src/js/vendor/jquery.lazyloadxt.js',
-        ],
+        ]
 
     },
     pathTo: {
         Src: {
+            css: 'src/css/**/*.css',
+            MainCss: 'src/css/main.css',
             Scss: 'src/scss/**/*.scss',
             MainScss: 'src/scss/main.scss',
             Pug: 'src/pug/**/*.pug',
             folder: {
                 JSVendor: 'src/js/vendor/',
-                SCSSVendor: 'src/scss/vendor/',
+                SCSSVendor: 'src/scss/vendor/'
             },
             JSCustom: 'src/js/custom/**/*.*',
             JSVendor: 'src/js/vendor/**/*.*',
