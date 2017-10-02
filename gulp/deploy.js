@@ -5,7 +5,7 @@ var gulp = require('gulp'),
 gulp.task('deploy', function(callback) {
     runSequence(
         'clean-server',
-        'deploy-pug',
+        'deploy-html',
         'bower',
         'deploy-js',
         'deploy-png-sprite',

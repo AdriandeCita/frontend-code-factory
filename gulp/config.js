@@ -15,7 +15,7 @@ module.exports = {
             MainCss: 'src/css/main.css',
             Scss: 'src/scss/**/*.scss',
             MainScss: 'src/scss/main.scss',
-            Pug: 'src/pug/**/*.pug',
+            Html: 'src/html/**/*.html',
             folder: {
                 JSVendor: 'src/js/vendor/',
                 SCSSVendor: 'src/scss/vendor/'
