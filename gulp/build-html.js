@@ -23,7 +23,7 @@ gulp.task('build-html', function() {
                 this.emit('end');
             }
         }))
-        .pipe(newer(config.pathTo.Build.Html))
+        // .pipe(newer(config.pathTo.Build.Html))
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@file'

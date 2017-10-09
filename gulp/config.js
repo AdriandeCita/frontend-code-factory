@@ -4,7 +4,6 @@ module.exports = {
         // sources for vendor-bundle here
         // set them manually to override normal behaviour
         JSVendorBundleSource: [
-            //'src/js/vendor/jquery.js',
             //'src/js/vendor/jquery.lazyloadxt.js',
         ]
 
@@ -13,12 +12,10 @@ module.exports = {
         Src: {
             css: 'src/css/**/*.css',
             MainCss: 'src/css/main.css',
-            Scss: 'src/scss/**/*.scss',
-            MainScss: 'src/scss/main.scss',
             Html: 'src/html/**/*.html',
             folder: {
                 JSVendor: 'src/js/vendor/',
-                SCSSVendor: 'src/scss/vendor/'
+                CSSVendor: 'src/css/vendor/'
             },
             JSCustom: 'src/js/custom/**/*.*',
             JSVendor: 'src/js/vendor/**/*.*',

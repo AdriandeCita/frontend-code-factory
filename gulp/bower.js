@@ -37,6 +37,6 @@ gulp.task('bower', function () {
         .pipe(jsFilter.restore)
         // Get vendor CSS
         .pipe(cssFilter)
-        .pipe(gulp.dest(config.pathTo.Src.folder.SCSSVendor))
+        .pipe(gulp.dest(config.pathTo.Src.folder.CSSVendor))
         .pipe(reload({stream: true}));
 });
