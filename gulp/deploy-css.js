@@ -10,6 +10,7 @@ var gulp = require('gulp'),
     postcssCssnano = require('cssnano'),
     postcssStylelint = require('stylelint'),
     postcssReporter = require('postcss-reporter'),
+    sortCssMQ = require('sort-css-media-queries'),
     sourcemaps = require('gulp-sourcemaps'),
     newer = require('gulp-newer'),
     gutil = require('gulp-util'),
@@ -26,7 +27,9 @@ gulp.task('deploy-css', function () {
         // postcssStylelint({ignoreFiles: 'vendor/**/*.css'}),
         postcssNested,
         postcssCssnext,
-        postcssMqpacker,
+        postcssMqpacker({
+            sort: sortCssMQ
+        }),
         postcssCssnano,
         postcssReporter({ clearReportedMessages: true })
     ];
