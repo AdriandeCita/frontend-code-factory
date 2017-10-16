@@ -1,5 +1,7 @@
 var gulp = require('gulp'),
     config = require('./config'),
+    deployConf = require('../deploy.conf'),
+    replace = require('gulp-replace'),
     postcss = require('gulp-postcss'),
     postcssCssnext = require('postcss-cssnext'),
     postcssMqpacker = require('css-mqpacker'),
@@ -10,6 +12,7 @@ var gulp = require('gulp'),
     postcssCssnano = require('cssnano'),
     postcssStylelint = require('stylelint'),
     postcssReporter = require('postcss-reporter'),
+    postcssUrl = require('postcss-url'),
     sortCssMQ = require('sort-css-media-queries'),
     sourcemaps = require('gulp-sourcemaps'),
     newer = require('gulp-newer'),
@@ -29,6 +32,13 @@ gulp.task('deploy-css', function () {
         postcssCssnext,
         postcssMqpacker({
             sort: sortCssMQ
+        }),
+        postcssUrl({
+            filter: '**/fonts/**/*',
+            url: function(asset) {
+                console.log('something here');
+                return deployConf.assetsPath + asset.url;
+            }
         }),
         postcssCssnano,
         postcssReporter({ clearReportedMessages: true })
