@@ -5,6 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "run": "gulp build; gulp watch;",
+    "starter": "gulp build; gulp watch;",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
