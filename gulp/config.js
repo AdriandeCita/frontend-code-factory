@@ -10,7 +10,7 @@ module.exports = {
     },
     pathTo: {
         Src: {
-            css: 'src/css/**/*.css',
+            css: ['src/css/**/*.css', 'src/css/**/*.pcss'],
             MainCss: 'src/css/main.css',
             Html: 'src/html/**/*.html',
             folder: {
