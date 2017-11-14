@@ -6,7 +6,6 @@ gulp.task('deploy', function(callback) {
     runSequence(
         'deploy-clean',
         'deploy-html',
-        'bower',
         'deploy-js',
         'deploy-png-sprite',
         'deploy-images',

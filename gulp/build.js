@@ -6,7 +6,6 @@ gulp.task('build', function(callback) {
     runSequence(
         'clean-server',
         'build-html',
-        'bower',
         'build-js',
         'build-png-sprite',
         'build-images',

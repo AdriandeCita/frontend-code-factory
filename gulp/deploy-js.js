@@ -45,6 +45,7 @@ gulp.task('deploy-js', function () {
         .pipe(customJS.restore)
         // Get vendor JS
         .pipe(vendorJS)
+        .pipe(include())
         .pipe(gulp.dest(config.pathTo.Deploy.JSVendor))
         .pipe(sourcemaps.init())
         .pipe(concat('vendor-bundle.js'))

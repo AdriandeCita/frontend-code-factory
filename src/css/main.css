@@ -4,7 +4,8 @@ Main style file
 
 /* Put your vendor styles here */
 
-@import "./vendor/normalize.css";
+@import "../../node_modules/normalize.css/normalize.css";
+@import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 
 
 /* Put you custom styles below */

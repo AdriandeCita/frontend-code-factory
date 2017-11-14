@@ -14,11 +14,11 @@ module.exports = {
             MainCss: 'src/css/main.css',
             Html: 'src/html/**/*.html',
             folder: {
-                JSVendor: 'src/js/vendor/',
+                JSVendor: 'src/js/vendor.js',
                 CSSVendor: 'src/css/vendor/'
             },
             JSCustom: 'src/js/custom/**/*.*',
-            JSVendor: 'src/js/vendor/**/*.*',
+            JSVendor: 'src/js/vendor.js',
             Images: ['src/img/**/*.*', '!src/img/sprite/*.*'],
             PngSprite: 'src/img/sprite/**/*.png',
             Fonts: 'src/scss/fonts/**/*',

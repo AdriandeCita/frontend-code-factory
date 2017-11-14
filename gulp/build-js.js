@@ -7,6 +7,7 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     newer = require('gulp-newer'),
     gulpFilter = require('gulp-filter'),
+    include = require('gulp-include'),
     concat = require('gulp-concat'),
     gutil = require('gulp-util'),
     rename = require('gulp-rename'),
@@ -17,7 +18,7 @@ var gulp = require('gulp'),
 
 gulp.task('build-js', function () {
     var customJS = gulpFilter(config.pathTo.Src.JSCustom, {restore: true}),
-        vendorJS = config.control.JSVendorBundleSource.length ? gulpFilter(config.control.JSVendorBundleSource, {restore: true}) : gulpFilter(config.pathTo.Src.JSVendor, {restore: true});
+        vendorJS = gulpFilter(config.pathTo.Src.JSVendor, {restore: true});
 
     return gulp.src(config.pathTo.Src.JS)
         .pipe(plumber({
@@ -45,6 +46,7 @@ gulp.task('build-js', function () {
         .pipe(customJS.restore)
         // Get vendor JS
         .pipe(vendorJS)
+        .pipe(include())
         .pipe(gulp.dest(config.pathTo.Build.JSVendor))
         .pipe(sourcemaps.init())
         .pipe(concat('vendor-bundle.js'))
