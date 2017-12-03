@@ -6,10 +6,10 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     sourcemaps = require('gulp-sourcemaps'),
     newer = require('gulp-newer'),
-    include = require('gulp-include'),
     gulpFilter = require('gulp-filter'),
     concat = require('gulp-concat'),
     gutil = require('gulp-util'),
+    babel = require('gulp-babel'),
     rename = require('gulp-rename'),
     browserSync = require("browser-sync"),
     reload = browserSync.reload,
@@ -36,6 +36,9 @@ gulp.task('deploy-js', function () {
         .pipe(sourcemaps.init())
         .pipe(jshint())
         .pipe(jshint.reporter(stylish))
+        .pipe(babel({
+            presets: ['env']
+        }))
         .pipe(gulp.dest(config.pathTo.Deploy.JSCustomBundle))
         .pipe(concat('custom-bundle.js'))
         .pipe(gulp.dest(config.pathTo.Deploy.JSCustomBundle))

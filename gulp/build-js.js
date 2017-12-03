@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     gulpFilter = require('gulp-filter'),
     include = require('gulp-include'),
     concat = require('gulp-concat'),
+    babel = require('gulp-babel'),
     gutil = require('gulp-util'),
     rename = require('gulp-rename'),
     browserSync = require("browser-sync"),
@@ -36,6 +37,9 @@ gulp.task('build-js', function () {
         .pipe(sourcemaps.init())
         .pipe(jshint())
         .pipe(jshint.reporter(stylish))
+        .pipe(babel({
+            presets: ['env']
+        }))
         .pipe(gulp.dest(config.pathTo.Build.JSCustomBundle))
         .pipe(concat('custom-bundle.js'))
         .pipe(gulp.dest(config.pathTo.Build.JSCustomBundle))
