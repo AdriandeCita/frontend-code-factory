@@ -35,7 +35,7 @@ gulp.task('deploy-html', function() {
             if (match.match(/(src=["'])https?:\//g)) {
                 return match;
             } else {
-                return match.replace(/(src=["'])/g, '$1' + deployConf.assetsPath);
+                return match.replace(/(src=["']\/?)/g, '$1' + deployConf.assetsPath);
             }
 
         }))

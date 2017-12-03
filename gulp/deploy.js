@@ -14,5 +14,6 @@ gulp.task('deploy', function(callback) {
         'deploy-fonts',
         'deploy-css',
         'deploy-txt',
-        callback)
+        callback
+    )
 });

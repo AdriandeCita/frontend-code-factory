@@ -21,7 +21,7 @@ module.exports = {
             JSVendor: 'src/js/vendor.js',
             Images: ['src/img/**/*.*', '!src/img/sprite/*.*'],
             PngSprite: 'src/img/sprite/**/*.png',
-            Fonts: 'src/scss/fonts/**/*',
+            Fonts: 'src/css/fonts/**/*',
             Txt: ['src/humans.txt', 'src/robots.txt', 'src/.htaccess'],
             Svg: ['src/svg/**/*.*', '!src/svg/sprite/*.*'],
             JS: 'src/js/**/*.*',
@@ -50,6 +50,7 @@ module.exports = {
             SvgSpriteCSS: 'src/scss/includes/_svg-sprite.scss'
         },
         Deploy: {
+            files: ['distribution/**/*.*', 'distribution/components'],
             Css: 'distribution/css',
             Html: 'distribution/',
             Clean: ['distribution/**/*', '!distribution/.gitignore'],

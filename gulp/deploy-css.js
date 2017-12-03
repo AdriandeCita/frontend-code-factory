@@ -36,8 +36,7 @@ gulp.task('deploy-css', function () {
         postcssUrl({
             filter: '**/fonts/**/*',
             url: function(asset) {
-                console.log('something here');
-                return deployConf.assetsPath + asset.url;
+                return asset.url.replace(/^\/?(.*)/, deployConf.assetsPath + '$1');
             }
         }),
         postcssCssnano,
