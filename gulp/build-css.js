@@ -22,11 +22,13 @@ var gulp = require('gulp'),
 gulp.task('build-css', function () {
     var processors = [
         postcssImport,
-        postcssFontpath({checkFiles: true}),
+        postcssFontpath(),
         // postcssSprites,
         // postcssStylelint({ignoreFiles: 'vendor/**/*.css'}),
         postcssNested,
-        postcssCssnext,
+        postcssCssnext({
+            warnForDuplicates: false
+        }),
         postcssMqpacker({
             sort: sortCssMQ
         }),
