@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     postcssCssnext = require('postcss-cssnext'),
     postcssMqpacker = require('css-mqpacker'),
     postcssImport = require('postcss-import'),
+    postcssScss = require('postcss-scss'),
     postcssSprites = require('postcss-sprites'),
     postcssFontpath = require('postcss-fontpath'),
     postcssNested = require('postcss-nested'),
@@ -22,13 +23,11 @@ var gulp = require('gulp'),
 gulp.task('build-css', function () {
     var processors = [
         postcssImport,
-        postcssFontpath(),
+        postcssFontpath({checkFiles: true}),
         // postcssSprites,
         // postcssStylelint({ignoreFiles: 'vendor/**/*.css'}),
         postcssNested,
-        postcssCssnext({
-            warnForDuplicates: false
-        }),
+        postcssCssnext,
         postcssMqpacker({
             sort: sortCssMQ
         }),
@@ -49,7 +48,7 @@ gulp.task('build-css', function () {
         }))
         .pipe(newer(config.pathTo.Build.Css))
         .pipe(sourcemaps.init())
-        .pipe(postcss(processors))
+        .pipe(postcss(processors, {parser: postcssScss}))
         .pipe(rename({ suffix: '.min' }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(config.pathTo.Build.Css))

@@ -6,6 +6,7 @@ var gulp = require('gulp'),
     postcssCssnext = require('postcss-cssnext'),
     postcssMqpacker = require('css-mqpacker'),
     postcssImport = require('postcss-import'),
+    postcssScss = require('postcss-scss'),
     postcssSprites = require('postcss-sprites'),
     postcssFontpath = require('postcss-fontpath'),
     postcssNested = require('postcss-nested'),
@@ -25,10 +26,7 @@ var gulp = require('gulp'),
 gulp.task('deploy-css', function () {
     var processors = [
         postcssImport,
-        postcssFontpath({
-            checkFiles: true,
-            ie8Fix: true
-        }),
+        postcssFontpath({checkFiles: true}),
         // postcssSprites,
         // postcssStylelint({ignoreFiles: 'vendor/**/*.css'}),
         postcssNested,
@@ -59,7 +57,7 @@ gulp.task('deploy-css', function () {
         }))
         .pipe(newer(config.pathTo.Deploy.Css))
         .pipe(sourcemaps.init())
-        .pipe(postcss(processors))
+        .pipe(postcss(processors, {parser: postcssScss}))
         .pipe(rename({ suffix: '.min' }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(config.pathTo.Deploy.Css))
