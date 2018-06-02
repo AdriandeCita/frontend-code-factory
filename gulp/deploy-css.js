@@ -26,7 +26,7 @@ var gulp = require('gulp'),
 gulp.task('deploy-css', function () {
     var processors = [
         postcssImport,
-        postcssFontpath({checkFiles: true}),
+        postcssFontpath({checkFiles: false}),
         // postcssSprites,
         // postcssStylelint({ignoreFiles: 'vendor/**/*.css'}),
         postcssNested,
