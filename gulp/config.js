@@ -72,7 +72,12 @@ module.exports = {
     },
 
     // Browser versions for automatically prefix
-    autoprefix: ['last 3 versions', '> 1%', 'Firefox ESR'],
+    autoprefix: [
+        "> 1%",
+        "IE 11",
+        "ios >= 8",
+        "Android >= 4.4"
+    ],
 
     // BrowserSync local web server settings
     browserSync: {

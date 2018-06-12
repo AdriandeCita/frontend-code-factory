@@ -27,7 +27,9 @@ gulp.task('build-css', function () {
         // postcssSprites,
         // postcssStylelint({ignoreFiles: 'vendor/**/*.css'}),
         postcssNested,
-        postcssCssnext,
+        postcssCssnext({
+            browsers: config.autoprefix
+        }),
         postcssMqpacker({
             sort: sortCssMQ
         }),

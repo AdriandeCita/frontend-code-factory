@@ -30,7 +30,9 @@ gulp.task('deploy-css', function () {
         // postcssSprites,
         // postcssStylelint({ignoreFiles: 'vendor/**/*.css'}),
         postcssNested,
-        postcssCssnext,
+        postcssCssnext({
+            browsers: config.autoprefix
+        }),
         postcssMqpacker({
             sort: sortCssMQ
         }),
