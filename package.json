@@ -4,10 +4,10 @@
   "description": "Web development kit",
   "main": "gulpfile.js",
   "scripts": {
-    "run": "gulp build; gulp watch;",
+    "run": "gulp build && gulp watch",
     "init": "node init.js",
-    "starter": "gulp build; gulp watch;",
-    "deploy": "gulp deploy; gulp deploy-scp;",
+    "starter": "gulp build && gulp watch",
+    "deploy": "gulp deploy && gulp deploy-scp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
