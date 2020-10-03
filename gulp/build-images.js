@@ -8,8 +8,7 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     plumber = require('gulp-plumber');
 
-
-gulp.task('build-images', function () {
+function buildImages() {
     return gulp.src(config.pathTo.Src.Images)
 
         .pipe(plumber({
@@ -25,4 +24,6 @@ gulp.task('build-images', function () {
         .pipe(newer(config.pathTo.Build.Images))
         .pipe(gulp.dest(config.pathTo.Build.Images))
         .pipe(reload({stream: true}));
-});
+}
+
+module.exports = buildImages

@@ -8,7 +8,7 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     plumber = require('gulp-plumber');
 
-gulp.task('build-fonts', function() {
+function buildFonts() {
     return gulp.src(config.pathTo.Src.Fonts)
         .pipe(plumber({
             errorHandler: function(error) {
@@ -23,4 +23,6 @@ gulp.task('build-fonts', function() {
         .pipe(newer(config.pathTo.Build.Fonts))
         .pipe(gulp.dest(config.pathTo.Build.Fonts))
         .pipe(reload({stream: true}));
-});
+}
+
+module.exports = buildFonts

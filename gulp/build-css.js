@@ -20,7 +20,7 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     notify = require('gulp-notify');
 
-gulp.task('build-css', function () {
+function buildCss() {
     var processors = [
         postcssImport,
         postcssFontpath({checkFiles: false}),
@@ -37,7 +37,7 @@ gulp.task('build-css', function () {
         postcssReporter({ clearReportedMessages: true })
     ];
 
-    gulp.src(config.pathTo.Src.MainCss)
+    return gulp.src(config.pathTo.Src.MainCss)
         .pipe(plumber({
             errorHandler: function(error) {
                 notify({
@@ -55,4 +55,6 @@ gulp.task('build-css', function () {
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(config.pathTo.Build.Css))
         .pipe(browserSync.reload({stream: true}));
-});
+}
+
+module.exports = buildCss

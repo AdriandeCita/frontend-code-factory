@@ -1,8 +1,11 @@
 /* BrowserSync local web server*/
-var gulp = require('gulp'),
-    config = require('./config'),
+var config = require('./config'),
     browserSync = require("browser-sync");
 
-gulp.task('webserver', function () {
+function webserver(done) {
     browserSync(config.browserSync);
-});
+
+    done();
+}
+
+module.exports = webserver

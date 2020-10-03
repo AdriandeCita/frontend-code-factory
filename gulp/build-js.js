@@ -17,7 +17,7 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     notify = require('gulp-notify');
 
-gulp.task('build-js', function () {
+function buildJs() {
     var customJS = gulpFilter(config.pathTo.Src.JSCustom, {restore: true}),
         vendorJS = gulpFilter(config.pathTo.Src.JSVendor, {restore: true});
 
@@ -60,4 +60,6 @@ gulp.task('build-js', function () {
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(config.pathTo.Build.JSVendorBundle))
         .pipe(reload({stream: true}));
-});
+}
+
+module.exports = buildJs

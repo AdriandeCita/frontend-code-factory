@@ -8,7 +8,7 @@ var gulp = require('gulp'),
     reload = browserSync.reload,
     plumber = require('gulp-plumber');
 
-gulp.task('build-svg', function () {
+function buildSvg() {
     return gulp.src(config.pathTo.Src.Svg)
         .pipe(plumber(function(error) {
             gutil.log(gutil.colors.red(error.message));
@@ -17,4 +17,6 @@ gulp.task('build-svg', function () {
         .pipe(newer(config.pathTo.Build.Svg))
         .pipe(gulp.dest(config.pathTo.Build.Svg))
         .pipe(reload({stream: true}));
-});
+}
+
+module.exports = buildSvg

@@ -2,7 +2,9 @@
 var gulp = require('gulp'),
     config = require('./config');
 
-gulp.task('build-txt', function() {
-    gulp.src(config.pathTo.Src.Txt)
+function buildText() {
+    return gulp.src(config.pathTo.Src.Txt)
         .pipe(gulp.dest(config.pathTo.Build.Txt))
-});
+}
+
+module.exports = buildText

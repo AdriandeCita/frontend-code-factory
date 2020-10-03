@@ -1,10 +1,7 @@
 'use strict';
 
-/* Gulp plugins */
-var gulp = require('gulp'),
-    requireDir = require('require-dir');
+const build = require('./gulp/build')
+const defaultTask = require('./gulp/default')
 
-/* Get all tasks */
-requireDir('./gulp', { recurse: true });
-
-
+exports.build = build
+exports.default = defaultTask

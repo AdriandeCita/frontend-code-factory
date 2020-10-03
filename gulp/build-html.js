@@ -1,8 +1,7 @@
-/* Jade */
+/* HTML */
 var gulp = require('gulp'),
     config = require('./config'),
     prettify = require('gulp-prettify'),
-    pug = require('gulp-pug'),
     newer = require('gulp-newer'),
     gutil = require('gulp-util'),
     browserSync = require("browser-sync"),
@@ -11,7 +10,7 @@ var gulp = require('gulp'),
     fileinclude = require('gulp-file-include'),
     notify = require("gulp-notify");
 
-gulp.task('build-html', function() {
+function buildHtml() {
     return gulp.src(config.pathTo.Src.Html)
         .pipe(plumber({
             errorHandler: function(error) {
@@ -31,4 +30,6 @@ gulp.task('build-html', function() {
         .pipe(prettify({indent_size: 4}))
         .pipe(gulp.dest(config.pathTo.Build.Html))
         .pipe(reload({stream: true}));
-});
+}
+
+module.exports = buildHtml
