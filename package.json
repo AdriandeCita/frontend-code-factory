@@ -4,6 +4,8 @@
   "description": "Web development kit",
   "main": "gulpfile.js",
   "scripts": {
+    "build": "gulp build",
+    "watch": "gulp watch",
     "run": "gulp build && gulp watch",
     "init": "node init.js",
     "starter": "gulp build && gulp watch",
@@ -80,7 +82,7 @@
     "stylelint-config-standard": "^17.0.0",
     "yallist": "^3.0.2"
   },
-  "author": "Nikolay Myslovskiy @AdriandeCita",
+  "author": "Mykola Myslovskyi @AdriandeCita",
   "repository": {
     "type": "git",
     "url": "https://github.com/AdriandeCita/frontend-code-factory.git"

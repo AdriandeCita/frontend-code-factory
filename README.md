@@ -1,77 +1,53 @@
 # frontend-code-factory
 
-Система сборки для разработки фронтенда веб-проектов
-Основана на таск-раннере Gulp.js
+Standalone front-end development system, based on Gulp.js
 
-## Основные команды для работы с системой сборки
+## Getting started
 
-```
-npm install
-npm i
-```
-Установка всех пакетов-компонентов системы сборки, указанных в файле 
-package.json.
+Install dependencies:
 
+```sh
+npm i # or npm install
 ```
-gulp build
-```
-Первичная сборка проекта.
 
-```
-gulp watch
-```
-Запуск node.js веб-сервера, обслуживающего каталог с собранным проектом.
+Build the project:
 
-### Встроенные NPM-скрипты
-
+```sh
+npm run build
 ```
+
+Start webserver serving build directory's contents:
+
+```sh
+npm run watch
+```
+
+> Gulp commands work too, but require Gulp to be installed globally
+
+### Other built-in scripts
+
+Rebuild the project and run development server immediately:
+
+```sh
 npm run starter
 ```
-Пересборка проекта и немедленный запуск веб-сервера.
 
-```
+Run a script generating some draft markup (this functionality is not maintained):
+
+```sh
 npm run init
 ```
-Прогон скрипта для генерации чернового кода компонентов проекта
 
-## Структура системы
-
-```
-./gulp/
-```
-Ядро системы сборки.
+## Folder structure
 
 ```
-./server/
+│
+├─  ./gulp/             # Gulp tasks
+├─  ./server/           # Initial folder with built project files,
+│                       # also serves as development webserver root
+├─  ./src/              # Project source files
+├─  ./gulpfile.js       # Gulp task runner initializer
+├─  ./deploy.conf.js    # `gulp deploy` task parameters
+├─./package.json
+└─./node_modules/
 ```
-Первичный каталог с собранным проектом. Корень веб-сервера.
-
-```
-./src/
-```
-Исходники проекта.
-
-
-```
-./gulpfile
-```
-Файл инициализации таск-раннера Gulp.js.
-
-```
-./deploy.conf.js
-```
-Файл с параметрами, используемыми при выполнение задачи `gulp deploy`.
-
-+ `assetsPath` - строка, которая добавляется в URL файлов в коде HTML и CSS. Обрабатываются адреса картинок и шрифтов.
-
-```
-./package.json
-```
-Файл описания проекта, используемый пакетным менеджером npm.
-
-```
-./bower_components/
-./node_modules/
-```
-Временные каталоги, используемые для хранения компонентов системы сборки или же
-внешних модулей проекта.
